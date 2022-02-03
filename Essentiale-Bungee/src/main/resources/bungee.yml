@@ -1,0 +1,11 @@
+name: Essentiale
+main: net.platzhaltergaming.essentiale.bungee.Main
+author: "Alexander Trost"
+version: ${project.version}
+depends:
+  - Protocolize
+  - Proton
+softdepends:
+  - Networker
+libraries:
+  - com.ibm.icu:icu4j:70.1

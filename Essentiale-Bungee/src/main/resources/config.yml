@@ -1,0 +1,14 @@
+locales:
+  - en
+  - de
+
+base-commands:
+  commands:
+    afk:
+      enabled: true
+
+afk:
+  enabled: true
+  afk-server: '@limbo'
+  afk-servers: '^[@]?limbo(-[0-9]*)?$'
+  lobby-server: '@main-lobby'

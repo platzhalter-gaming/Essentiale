@@ -1,0 +1,29 @@
+name: Java Build CI
+
+on: [push]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+
+      - name: Set up Java
+        uses: actions/setup-java@v2
+        with:
+          distribution: "temurin"
+          java-version: "17"
+          cache: "maven"
+
+      # Uncomment if the Edenmal Nexus should be used (requires credentials)
+      - uses: s4u/maven-settings-action@v2.4.1
+        with:
+          servers: |
+            [{
+                "id": "platzhaltergaming-nexus",
+                "username": "${{ secrets.MC_EDEN_NEXUS_USERNAME }}",
+                "password": "${{ secrets.MC_EDEN_NEXUS_PASSWORD }}"
+            }]
+
+      - name: Build with Maven
+        run: mvn --batch-mode --update-snapshots verify

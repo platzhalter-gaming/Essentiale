@@ -1,0 +1,213 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+
+  <parent>
+    <groupId>net.platzhaltergaming</groupId>
+    <artifactId>Essentiale</artifactId>
+    <version>0.2.1</version>
+  </parent>
+
+  <artifactId>Essentiale-Paper</artifactId>
+
+  <properties>
+    <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+    <maven.compiler.source>17</maven.compiler.source>
+    <maven.compiler.target>17</maven.compiler.target>
+  </properties>
+
+  <dependencies>
+    <!-- Lombok -->
+    <dependency>
+      <groupId>org.projectlombok</groupId>
+      <artifactId>lombok</artifactId>
+      <version>1.18.24</version>
+      <scope>provided</scope>
+    </dependency>
+    <!-- Paper -->
+    <dependency>
+      <groupId>io.papermc.paper</groupId>
+      <artifactId>paper-api</artifactId>
+      <version>1.19-R0.1-SNAPSHOT</version>
+      <scope>provided</scope>
+    </dependency>
+    <!-- Proton -->
+    <dependency>
+      <groupId>com.github.mcgrizzz</groupId>
+      <artifactId>Proton</artifactId>
+      <version>v1.3.0</version>
+      <scope>provided</scope>
+    </dependency>
+    <!-- Essentiale-Common -->
+    <dependency>
+      <groupId>net.platzhaltergaming</groupId>
+      <artifactId>Essentiale-Common</artifactId>
+      <version>0.2.1</version>
+      <scope>compile</scope>
+    </dependency>
+    <!-- ACF -->
+    <dependency>
+      <groupId>co.aikar</groupId>
+      <artifactId>acf-paper</artifactId>
+      <version>0.5.1-SNAPSHOT</version>
+      <scope>compile</scope>
+    </dependency>
+    <!-- Configurate -->
+    <dependency>
+      <groupId>org.spongepowered</groupId>
+      <artifactId>configurate-yaml</artifactId>
+      <version>4.1.2</version>
+      <scope>provided</scope>
+      <exclusions>
+        <exclusion>
+          <!-- Already shaded in bungee -->
+          <groupId>com.google.guava</groupId>
+          <artifactId>guava</artifactId>
+        </exclusion>
+      </exclusions>
+    </dependency>
+    <!-- CommonLib Messages -->
+    <dependency>
+      <groupId>net.platzhaltergaming.commonlib</groupId>
+      <artifactId>Messages</artifactId>
+      <version>1.1.0</version>
+      <scope>provided</scope>
+    </dependency>
+    <!-- Adventure -->
+    <dependency>
+      <groupId>net.kyori</groupId>
+      <artifactId>adventure-api</artifactId>
+      <version>4.11.0</version>
+      <scope>provided</scope>
+    </dependency>
+    <dependency>
+      <groupId>net.kyori</groupId>
+      <artifactId>adventure-text-serializer-legacy</artifactId>
+      <version>4.11.0</version>
+      <scope>compile</scope>
+    </dependency>
+    <dependency>
+      <groupId>net.kyori</groupId>
+      <artifactId>adventure-text-minimessage</artifactId>
+      <version>4.11.0</version>
+      <scope>compile</scope>
+    </dependency>
+    <!-- LuckPerms -->
+    <dependency>
+      <groupId>net.luckperms</groupId>
+      <artifactId>api</artifactId>
+      <version>5.4</version>
+      <scope>provided</scope>
+    </dependency>
+    <!-- PlaceholderAPI -->
+    <dependency>
+      <groupId>me.clip</groupId>
+      <artifactId>placeholderapi</artifactId>
+      <version>2.11.2</version>
+      <scope>provided</scope>
+    </dependency>
+    <!-- FastBoard -->
+    <dependency>
+      <groupId>fr.mrmicky</groupId>
+      <artifactId>fastboard</artifactId>
+      <version>1.2.1</version>
+      <scope>compile</scope>
+    </dependency>
+  </dependencies>
+
+  <build>
+    <sourceDirectory>src/main/java</sourceDirectory>
+    <resources>
+      <resource>
+        <directory>${project.basedir}/src/main/resources</directory>
+        <filtering>true</filtering>
+        <excludes></excludes>
+      </resource>
+    </resources>
+    <plugins>
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-shade-plugin</artifactId>
+        <version>3.3.1-SNAPSHOT</version>
+        <configuration>
+          <dependencyReducedPomLocation>${project.build.directory}/dependency-reduced-pom.xml</dependencyReducedPomLocation>
+          <artifactSet>
+            <includes>
+              <include>net.platzhaltergaming:Essentiale-Common</include>
+              <include>co.aikar*:*</include>
+              <include>org.spongepowered:configurate-yaml</include>
+              <include>net.platzhaltergaming.commonlib:Messages</include>
+              <include>net.kyori:adventure-api</include>
+              <include>net.kyori:adventure-text-serializer-legacy</include>
+              <include>net.kyori:adventure-text-minimessage</include>
+              <include>fr.mrmicky:fastboard</include>
+            </includes>
+          </artifactSet>
+          <relocations>
+            <!-- ACF -->
+            <relocation>
+              <pattern>co.aikar.commands</pattern>
+              <shadedPattern>net.platzhaltergaming.essentiale.libs.co.aikar.commands</shadedPattern>
+            </relocation>
+            <relocation>
+              <pattern>co.aikar.locales</pattern>
+              <shadedPattern>net.platzhaltergaming.essentiale.libs.co.aikar.locales</shadedPattern>
+            </relocation>
+            <!-- Configurate -->
+            <relocation>
+              <pattern>org.spongepowered.configurate</pattern>
+              <shadedPattern>net.platzhaltergaming.essentiale.libs.org.spongepowered.configurate</shadedPattern>
+            </relocation>
+            <relocation>
+              <pattern>com.typesafe.config</pattern>
+              <shadedPattern>net.platzhaltergaming.essentiale.libs.com.typesafe.config</shadedPattern>
+            </relocation>
+            <relocation>
+              <pattern>io.leangen.geantyref</pattern>
+              <shadedPattern>net.platzhaltergaming.essentiale.libs.io.leangen.geantyref</shadedPattern>
+            </relocation>
+            <relocation>
+              <pattern>org.yaml.snakeyaml</pattern>
+              <shadedPattern>net.platzhaltergaming.essentiale.libs.org.yaml.snakeyaml</shadedPattern>
+            </relocation>
+            <!-- CommonLib -->
+            <relocation>
+              <pattern>net.platzhaltergaming.commonlib</pattern>
+              <shadedPattern>net.platzhaltergaming.essentiale.libs.net.platzhaltergaming.commonlib</shadedPattern>
+            </relocation>
+            <!-- Adventure -->
+            <relocation>
+              <pattern>net.kyori.adventure.text.serializer.legacy</pattern>
+              <shadedPattern>net.platzhaltergaming.essentiale.libs.net.kyori.adventure.text.serializer.legacy</shadedPattern>
+            </relocation>
+            <relocation>
+              <pattern>net.kyori.adventure.text.minimessage</pattern>
+              <shadedPattern>net.platzhaltergaming.essentiale.libs.net.kyori.adventure.text.minimessage</shadedPattern>
+            </relocation>
+            <!-- FastBoard -->
+            <relocation>
+              <pattern>fr.mrmicky.fastboard</pattern>
+              <shadedPattern>net.platzhaltergaming.essentiale.libs.fr.mrmicky.fastboard</shadedPattern>
+            </relocation>
+          </relocations>
+          <filters>
+            <filter>
+              <artifact>*:*</artifact>
+              <excludes>
+                <exclude>META-INF/**</exclude>
+              </excludes>
+            </filter>
+          </filters>
+        </configuration>
+        <executions>
+          <execution>
+            <phase>package</phase>
+            <goals>
+              <goal>shade</goal>
+            </goals>
+          </execution>
+        </executions>
+      </plugin>
+    </plugins>
+  </build>
+</project>

@@ -1,0 +1,98 @@
+locales:
+  - en
+  - de
+
+tab-list:
+  enabled: true
+  header: |-
+    <white>  </white>
+    <dark_gray>   » <blue><bold>Pʟᴀᴛᴢʜᴀʟᴛᴇʀ Gᴀᴍɪɴɢ</bold></blue> «</dark_gray>
+    <dark_gray> × <gray>Server</gray> » <yellow>${GAMESERVER_POD_HOSTNAME}</yellow> ×</dark_gray>
+    <white>  </white>
+  footer: |-
+    <white>  </white>
+    <gray>   Website <dark_gray>»</dark_gray> <yellow>platzhalter-gaming.net</yellow>   </gray>
+    <white>  </white>
+
+name-tag:
+  enabled: true
+  refresh-seconds: 7
+  max-weight: 10000
+  prefix: '%prefix% &8┃ &f'
+
+scoreboard:
+  enabled: false
+  refresh-seconds: 5
+  title: "§9§lGAMESERVER"
+  lines:
+    - "&8&m--------------"
+    - "&8» &7Topaz"
+    - "&8× &e%vault_eco_balance%"
+
+base-commands:
+  commands:
+    feed:
+      enabled: false
+    warps:
+      enabled: false
+    spawn:
+      enabled: false
+    fly:
+      enabled: false
+
+warps:
+  command-cooldown: 7500
+  warps: []
+
+spawn:
+  enabled: false
+  command-cooldown: 15000
+  on-join: true
+  on-respawn: false
+  location:
+    world: world
+    x: 0.0
+    y: 0.0
+    z: 0.0
+    yaw: 0.0
+    pitch: 0.0
+
+world-loader:
+  enabled: false
+  default-game-rules:
+    announceAdvancements:
+      bool: false
+    spectatorsGenerateChunks:
+      bool: false
+  worlds: {}
+    #world:
+    #  enabled: true
+    #  environment: NORMAL
+    #  difficulty: NORMAL
+    #  pvp: false
+    #  spawn:
+    #    enabled: false
+    #    location:
+    #      x: -17.5
+    #      y: 10.0
+    #      z: -35.5
+    #      yaw: -180.0
+    #      pitch: -0.5
+    #arena:
+    #  enabled: true
+    #  environment: NORMAL
+    #  difficulty: NORMAL
+    #  pvp: true
+    #  game-rules:
+    #    keepInventory:
+    #      bool: false
+    #  world-border:
+    #    enabled: false
+    #    center:
+    #      x: -17.5
+    #      y: 10.0
+    #      z: -35.5
+    #    size: 1500
+
+afk:
+  enabled: true

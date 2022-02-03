@@ -1,0 +1,15 @@
+name: Essentiale
+api-version: 1.18
+main: net.platzhaltergaming.essentiale.paper.Main
+author: "Alexander Trost"
+version: ${project.version}
+load: POSTWORLD
+depend:
+  - LuckPerms
+softdepend:
+  - PlaceholderAPI
+  - SlimeWorldManager
+libraries:
+  - com.ibm.icu:icu4j:70.1
+loadbefore:
+  - DeluxeCombat
