@@ -9,6 +9,7 @@ depend:
 softdepend:
   - PlaceholderAPI
   - SlimeWorldManager
+  - VoidGen
 libraries:
   - com.ibm.icu:icu4j:70.1
 loadbefore:

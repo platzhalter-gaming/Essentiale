@@ -5,7 +5,9 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.UUID;
+import java.util.stream.Collectors;
 
+import org.bukkit.ChatColor;
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
@@ -40,8 +42,9 @@ public class ScoreboardModule implements Listener {
         }
 
         this.refreshTime = getSettings().getRefreshSeconds();
-        this.title = getSettings().getTitle();
-        this.lines = getSettings().getLines();
+        this.title = getSettings().getTitle().replace('&', ChatColor.COLOR_CHAR);
+        this.lines = getSettings().getLines().stream().map(l -> l.replace('&', ChatColor.COLOR_CHAR))
+                .collect(Collectors.toList());
 
         getPlugin().getServer().getPluginManager().registerEvents(this, getPlugin());
 
