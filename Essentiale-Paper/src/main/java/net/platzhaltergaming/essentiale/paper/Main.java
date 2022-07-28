@@ -21,6 +21,7 @@ import net.platzhaltergaming.commonlib.messages.Messages;
 import net.platzhaltergaming.essentiale.paper.configurate.LocaleSerializer;
 import net.platzhaltergaming.essentiale.paper.configurate.LocationSerializer;
 import net.platzhaltergaming.essentiale.paper.modules.BaseCommandModule;
+import net.platzhaltergaming.essentiale.paper.modules.JoinLeaveMessageModule;
 import net.platzhaltergaming.essentiale.paper.modules.NameTagModule;
 import net.platzhaltergaming.essentiale.paper.modules.ScoreboardModule;
 import net.platzhaltergaming.essentiale.paper.modules.SpawnModule;
@@ -47,6 +48,7 @@ public class Main extends JavaPlugin {
     private ScoreboardModule scoreboardModule;
     private SpawnModule spawnModule;
     private BaseCommandModule baseCommandModule;
+    private JoinLeaveMessageModule joinLeaveMessageModule;
 
     @Override
     public void onEnable() {
@@ -81,6 +83,9 @@ public class Main extends JavaPlugin {
 
         this.baseCommandModule = new BaseCommandModule(this, this.commandManager, getSettings(), getMessages());
         this.baseCommandModule.onEnable();
+
+        this.joinLeaveMessageModule = new JoinLeaveMessageModule(this, getSettings().getJoinLeaveMessage());
+        this.joinLeaveMessageModule.onEnable();
     }
 
     @Override

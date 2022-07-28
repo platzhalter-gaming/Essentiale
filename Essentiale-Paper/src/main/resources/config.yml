@@ -96,3 +96,9 @@ world-loader:
 
 afk:
   enabled: true
+
+join-leave-message:
+  enabled: false
+  hide: true
+  join-message: ""
+  leave-message: ""

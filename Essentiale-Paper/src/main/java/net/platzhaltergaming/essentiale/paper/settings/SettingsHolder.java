@@ -10,6 +10,7 @@ import org.spongepowered.configurate.objectmapping.meta.Setting;
 
 import lombok.Data;
 import net.platzhaltergaming.essentiale.common.settings.BaseCommandProps;
+import net.platzhaltergaming.essentiale.paper.settings.features.JoinLeaveMessageProps;
 import net.platzhaltergaming.essentiale.paper.settings.features.NameTagProps;
 import net.platzhaltergaming.essentiale.paper.settings.features.ScoreboardProps;
 import net.platzhaltergaming.essentiale.paper.settings.features.SpawnProps;
@@ -49,5 +50,8 @@ public class SettingsHolder {
     @Required
     @Setting
     private WorldLoaderProps worldLoader;
+
+    @Setting
+    private JoinLeaveMessageProps joinLeaveMessage;
 
 }
