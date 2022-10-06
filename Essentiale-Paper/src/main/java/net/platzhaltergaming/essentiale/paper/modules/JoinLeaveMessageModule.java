@@ -50,7 +50,7 @@ public class JoinLeaveMessageModule implements Listener {
 
     protected Component deserializeAndTemplateMessage(String message, PlayerEvent event) {
         return MiniMessage.miniMessage().deserialize(getSettings().getJoinMessage(),
-                Placeholder.component("player", event.getPlayer().displayName()));
+                Placeholder.component("display-name", event.getPlayer().displayName()));
     }
 
 }
