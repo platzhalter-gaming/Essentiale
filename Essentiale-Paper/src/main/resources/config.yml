@@ -100,5 +100,5 @@ afk:
 join-leave-message:
   enabled: false
   hide: true
-  join-message: ""
-  leave-message: ""
+  join-message: "[+] <display-name>"
+  leave-message: "[-] <display-name>"
