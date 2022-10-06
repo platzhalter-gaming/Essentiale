@@ -69,7 +69,7 @@ public class Main extends JavaPlugin {
         this.worldLoaderModule = new WorldLoaderModule(this, getSettings().getWorldLoader());
         this.worldLoaderModule.onEnable();
 
-        this.nameTagModule = new NameTagModule(this, this.luckPerms, getSettings().getNameTag());
+        this.nameTagModule = new NameTagModule(this, getLuckPerms(), getSettings().getNameTag());
         this.nameTagModule.onEnable();
 
         this.tabListModule = new TabListModule(this, getSettings().getTabList());
@@ -84,7 +84,7 @@ public class Main extends JavaPlugin {
         this.baseCommandModule = new BaseCommandModule(this, this.commandManager, getSettings(), getMessages());
         this.baseCommandModule.onEnable();
 
-        this.joinLeaveMessageModule = new JoinLeaveMessageModule(this, getSettings().getJoinLeaveMessage());
+        this.joinLeaveMessageModule = new JoinLeaveMessageModule(this, getLuckPerms(), getSettings().getJoinLeaveMessage());
         this.joinLeaveMessageModule.onEnable();
     }
 

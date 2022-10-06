@@ -19,11 +19,11 @@ public class JoinLeaveMessageProps {
     private boolean hide = true;
 
     @Setting
-    @Comment("minimessage format for player quit/leave message")
+    @Comment("minimessage format for player join message")
     private String joinMessage;
 
     @Setting
-    @Comment("minimessage format for player quit/leave message")
-    private String quitMessage;
+    @Comment("minimessage format for player leave/quit message")
+    private String leaveMessage;
 
 }
