@@ -3,13 +3,13 @@
   <modelVersion>4.0.0</modelVersion>
 
   <groupId>net.platzhaltergaming</groupId>
-  <artifactId>Essentiale</artifactId>
+  <artifactId>essentiale</artifactId>
   <version>0.3.0</version>
 
   <modules>
-    <module>Essentiale-Common</module>
-    <module>Essentiale-Paper</module>
-    <module>Essentiale-Bungee</module>
+    <module>essentiale-common</module>
+    <module>essentiale-paper</module>
+    <module>essentiale-bungee</module>
   </modules>
 
   <packaging>pom</packaging>
@@ -38,10 +38,10 @@
       <id>jitpack.io</id>
       <url>https://jitpack.io</url>
     </repository>
-    <!-- Edenmal.net Nexus -->
+    <!-- GitHub platzhalter-gaming CommonLib -->
     <repository>
-      <id>platzhaltergaming-nexus</id>
-      <url>https://nexus.edenmal.net/repository/platzhaltergaming/</url>
+      <id>github-platzhalter-gaming-commonlib</id>
+      <url>https://maven.pkg.github.com/platzhalter-gaming/CommonLib</url>
     </repository>
     <!-- Protocolize -->
     <repository>
@@ -75,38 +75,15 @@
           <skip>true</skip>
         </configuration>
       </plugin>
-      <plugin>
-        <groupId>org.sonatype.plugins</groupId>
-        <artifactId>nexus-staging-maven-plugin</artifactId>
-        <version>1.6.8</version>
-        <executions>
-          <execution>
-            <id>default-deploy</id>
-            <phase>deploy</phase>
-            <goals>
-              <goal>deploy</goal>
-            </goals>
-          </execution>
-        </executions>
-        <configuration>
-          <serverId>platzhaltergaming-nexus</serverId>
-          <nexusUrl>https://nexus.edenmal.net/</nexusUrl>
-          <skipStaging>true</skipStaging>
-        </configuration>
-      </plugin>
     </plugins>
   </build>
 
   <distributionManagement>
-    <repository>
-      <id>platzhaltergaming-nexus</id>
-      <url>https://nexus.edenmal.net/repository/platzhaltergaming-releases</url>
-      <layout>default</layout>
-    </repository>
-    <snapshotRepository>
-      <id>platzhaltergaming-nexus</id>
-      <url>https://nexus.edenmal.net/repository/platzhaltergaming-snapshots</url>
-      <layout>default</layout>
-    </snapshotRepository>
+      <repository>
+          <id>github</id>
+          <name>GitHub platzhalter-gaming Apache Maven Packages</name>
+          <url>https://maven.pkg.github.com/platzhalter-gaming/Essentiale</url>
+          <layout>default</layout>
+      </repository>
   </distributionManagement>
 </project>
