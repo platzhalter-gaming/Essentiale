@@ -63,7 +63,7 @@ public class WorldLoaderModule {
                     }
                 }
 
-                this.setGameRules(props, world);
+                setGameRules(props, world);
 
                 getPlugin().getLogger().info(String.format("Loaded world %s.", worldName));
             }

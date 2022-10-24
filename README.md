@@ -9,6 +9,7 @@ Base commands and features important for the proxy and servers (e.g., scoreboard
 * Base Commands
 * Spawn Logic and Command
 * World Loader (+ Game Rule Setter)
+* AFK Module
 
 ## Base Commands
 
